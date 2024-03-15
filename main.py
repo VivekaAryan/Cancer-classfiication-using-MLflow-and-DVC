@@ -1,4 +1,14 @@
 from src.ChestCancerClassfication.utils import logger
+from src.ChestCancerClassfication.pipeline.step_01_data_ingestion import DataIngestionTrainingPipeline
 
+STAGE_NAME = "Data Ingestion stage"
 
-logger.info("Welcome to Chest Cancer Classfier!")
+try:
+    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
+    obj = DataIngestionTrainingPipeline()
+    obj.main()
+    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx=============x")
+
+except Exception as e:
+    logger.exception(e)
+    raise e
