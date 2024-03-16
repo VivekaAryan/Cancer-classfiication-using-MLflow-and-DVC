@@ -1,7 +1,11 @@
 import os
 from src.ChestCancerClassfication.constants import *
-from src.ChestCancerClassfication.utils.common import read_yaml, create_directories
-from src.ChestCancerClassfication.entity.config_entity import DataIngestionConfig, PrepareBaseModelConfig, TrainingConfig
+from src.ChestCancerClassfication.utils.common import read_yaml, create_directories, save_json
+from src.ChestCancerClassfication.entity.config_entity import (DataIngestionConfig, 
+                                                               PrepareBaseModelConfig, 
+                                                               TrainingConfig, 
+                                                               EvaluationConfig
+                                                               )
 
 class ConfigurationManager:
     def __init__(
@@ -67,3 +71,16 @@ class ConfigurationManager:
         )
 
         return training_config
+    
+    def get_evaluation_config(self) -> EvaluationConfig:
+        eval_config = EvaluationConfig(
+            path_of_model = "artifacts/training/model.h5",
+            training_data = "artifacts/data_ingestion/Data/train",
+            valid_data = "artifacts/data_ingestion/Data/valid",
+            mlflow_uri = "https://dagshub.com/aryanravula/Cancer-classfiication-using-MLflow-and-DVC.mlflow",
+            all_params = self.params,
+            params_image_size = self.params.IMAGE_SIZE,
+            params_batch_size = self.params.BATCH_SIZE
+        )
+
+        return eval_config
