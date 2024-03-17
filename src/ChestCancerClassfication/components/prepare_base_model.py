@@ -99,3 +99,20 @@ class PrepareBaseModel:
             model (tf.keras.Model): The model to be saved.
         """
         model.save(path)
+    
+    # @staticmethod
+    # def save_model(path: Path, model: tf.keras.Model):
+    #     """
+    #     Save the provided model to the specified path.
+
+    #     Args:
+    #         path (Path): Path where the model will be saved.
+    #         model (tf.keras.Model): The model to be saved.
+    #     """
+    #     # # Save model architecture as JSON
+    #     # model_json = model.to_json()
+    #     # with open(path.with_suffix('.json'), 'w') as json_file:
+    #     #     json_file.write(model_json)
+
+    #     # Save model weights
+    #     model.save_weights(path)
