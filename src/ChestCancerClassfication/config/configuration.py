@@ -1,7 +1,7 @@
 import os
-from src.ChestCancerClassfication.constants import *
-from src.ChestCancerClassfication.utils.common import read_yaml, create_directories, save_json
-from src.ChestCancerClassfication.entity.config_entity import (DataIngestionConfig, 
+from ChestCancerClassfication.constants import *
+from ChestCancerClassfication.utils.common import read_yaml, create_directories, save_json
+from ChestCancerClassfication.entity.config_entity import (DataIngestionConfig, 
                                                                PrepareBaseModelConfig, 
                                                                TrainingConfig, 
                                                                EvaluationConfig

@@ -4,8 +4,8 @@ import mlflow
 import json
 import mlflow.keras 
 from urllib.parse import urlparse
-from src.ChestCancerClassfication.utils.common import save_json
-from src.ChestCancerClassfication.entity.config_entity import EvaluationConfig
+from ChestCancerClassfication.utils.common import save_json
+from ChestCancerClassfication.entity.config_entity import EvaluationConfig
 
 class Evaluation:
     def __init__(self, config: EvaluationConfig):

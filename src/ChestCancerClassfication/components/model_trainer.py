@@ -4,7 +4,7 @@ from zipfile import ZipFile
 import tensorflow as tf
 import time
 from pathlib import Path
-from src.ChestCancerClassfication.entity.config_entity import TrainingConfig
+from ChestCancerClassfication.entity.config_entity import TrainingConfig
 
 
 class Training:
