@@ -12,6 +12,9 @@
 8. Update the main.py
 9. Update the dvc.yaml
 
-## Folders
+## Workflow
 
-1. .
+### 1. Setting up Initial Directory structure and file
+```template.py``` is designed to set up the initial directory structure and files for any project. It ensures that all necessary directories and files are created, making it easier to maintain a consistent project structure.
+
+__Note:__ The ```__init__.py``` file is needed in each folder to turn the directory into a Python package.

@@ -26,9 +26,14 @@ list_of_files = [
 ]
 
 for filepath in list_of_files:
+    # Creating a PurePath from string values. 
+    # Path automatically rectifies any issues in the string path.
     filepath = Path(filepath)
+
+    # Convering path to Operating System type
     filedir, filename = os.path.split(filepath)
 
+    # Creating the folders and files
     if filedir != "":
         os.makedirs(filedir, exist_ok=True)
         logging.info(f"Creating directory: {filedir} for the file: {filename}")

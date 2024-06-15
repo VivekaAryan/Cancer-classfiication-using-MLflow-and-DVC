@@ -108,7 +108,7 @@ class Training:
 
     @staticmethod
     def save_model(path: Path, model: tf.keras.Model):
-        # model.save_weights(path)
+        model.save_weights(path)
         model.save(path)
 
     def train(self):
