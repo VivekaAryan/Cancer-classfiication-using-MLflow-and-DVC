@@ -1,4 +1,4 @@
-from src.ChestCancerClassfication.utils import logger
+from src.ChestCancerClassfication import logger
 from src.ChestCancerClassfication.pipeline.step_01_data_ingestion import DataIngestionTrainingPipeline
 from src.ChestCancerClassfication.pipeline.step_02_prepare_base_model import PrepareBaseModelTrainingPipeline
 from src.ChestCancerClassfication.pipeline.step_03_model_trainer import ModelTrainingPipeline

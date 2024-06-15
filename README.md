@@ -1,4 +1,4 @@
-# Cancer-classfiication-using-MLflow-and-DVC
+# Cancer Classfiication Using MLflow and DVC
 
 ## Workflow
 
