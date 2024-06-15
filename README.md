@@ -26,3 +26,13 @@ The ```-e .``` line in the ```requirements.txt``` file was a special entry that 
 __Note:__ The ```__init__.py``` file is needed in each folder to turn the directory into a Python package.
 
 The ```setup.py``` script is a crucial part of the packaging and distribution process for Python projects, ensuring that the package can be easily installed and used by others.
+
+### 3. Logging and Exception
+
+#### Logging
+
+The custom logging function has been initialized in the ```src/ChestCancerClassification``` path. This function is designed to capture and record log messages, which are saved in the ```running_logs.log``` file. This logging mechanism is crucial for future debugging and monitoring the application's behavior.
+
+#### Exception Handling with Python Box
+
+The ```python-box``` library provides a convenient way to handle exceptions using the ```Box``` class. This class allows for nested dictionary-like objects that support dot notation and can be used to structure and access data more intuitively. When it comes to exception handling, ```python-box``` can help manage configuration data and other structured information in a way that enhances readability and maintainability.
