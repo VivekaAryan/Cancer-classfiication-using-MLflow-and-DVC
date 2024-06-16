@@ -1,11 +1,11 @@
 # Cancer Classfiication Using MLflow and DVC
 
-## Workflow
+## Workflow 
 
-1. Update config.yaml
-2. Update secrets.yaml [optional]
-3. Update params.yaml
-4. Update the entity
+1. Setting up Initial Directory structure and file
+2. Requirements Installation
+3. Logging and Exception
+4. Creating frequently used functionalities in Utils
 5. Update the configuration manager in src config
 6. Udpate the components
 7. Update the pipeline
