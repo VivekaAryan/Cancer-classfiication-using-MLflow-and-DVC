@@ -10,10 +10,9 @@
     5.1. [Data Ingestion](#51-data-ingestion)
     5.2. [Preparing the model](#52-prepare-base-model)
     5.3. [Training the model](#53--training-the-model)
-6. Udpate the components
-7. Update the pipeline
-8. Update the main.py
-9. Update the dvc.yaml
+    5.4. [Model Evaluation](#54--model-evaluation)
+    5.5. [Adding Data Versioning Control (DVC) to track pipeline](#55--adding-data-versioning-control-dvc-to-track-pipeline)
+6. [Prediction](#6-prediction)
 
 ## Detailed Workflow
 
@@ -180,6 +179,7 @@ How to run DVC:
 ```Python
 # Initialize DVC
 dvc init
+
 # Run dvc repro
 dvc repro
 ``` 
@@ -189,3 +189,54 @@ This will set up a ```.dvc```, ```dvc.lock``` and ```.dvcignore``` in your root 
 - __```.dvc``` Directory__: Manages DVC configurations and cached data to enable version control and efficient data tracking.
 - __```dvc.lock``` File__: Ensures reproducibility by locking the exact versions of data and code dependencies for each pipeline stage.
 - __```.dvcignore``` File__: Excludes specified files and directories from DVC tracking, similar to .gitignore in Git.
+
+### 6. Prediction
+The ```PredictionPipeline``` class is designed to handle the prediction stage of the ```ChestCancerClassification``` project. This stage involves loading a trained neural network model, processing an input image, making predictions, and returning the prediction results.
+
+- __Loading the Model__:
+    - The model is loaded from the artifacts/training directory using. TensorFlow’s load_model function. This model is the result of the training stage and is used to make predictions on new data.
+
+- __Image Preprocessing__:
+
+    - The input image specified by self.filename is loaded and resized to the target size of (350, 360) pixels using image.load_img.
+    - The image is then converted to a numpy array with image.img_to_array and expanded to include an additional dimension using np.expand_dims to match the input shape required by the model.
+
+- __Making Predictions__:
+
+    - The preprocessed image is passed to the model’s predict function, which returns the prediction probabilities for each class.
+    - The class with the highest probability is determined using np.argmax.
+
+- __Interpreting Results__:
+
+    - The predicted class index is mapped to the corresponding cancer type:
+    0 → Adenocarcinoma Cancer
+    1 → Large Cell Carcinoma Cancer
+    2 → Normal
+    Other → Squamous Cell Carcinoma Cancer
+    - The prediction is returned as a dictionary containing the predicted cancer type.
+
+### 7. Flask Application for the Prediction Pipeline
+This Flask application serves as a web interface for the ```ChestCancerClassification``` project. It provides endpoints for rendering the homepage, initiating the training process, and making predictions using a trained model. The application integrates CORS to allow cross-origin requests, enabling it to interact with other web services or clients.
+
+- __Initialization__:
+
+    - The environment variables ```LANG``` and ```LC_ALL``` are set to ensure the application uses the English locale.
+    - The Flask application is created, and CORS is enabled to allow cross-origin requests.
+
+- __ClientApp Class__:
+
+    - The ```ClientApp``` class is instantiated, setting the ```filename``` for the input image and initializing the ```PredictionPipeline``` with this filename.
+
+- __Home Route__:
+
+    - The home route renders the ```index.html``` page, providing a user interface for interacting with the application.
+
+- __Training Route__:
+
+    - The training route can be triggered via a GET or POST request. It runs the training script (```main.py```) to train the model and returns a success message once training is completed.
+
+- __Prediction Route__:
+
+    - The prediction route accepts a POST request containing a base64-encoded image.
+    - The image is decoded and saved using the decodeImage function.
+    - The PredictionPipeline runs the prediction on the saved image, and the result is returned as a JSON response.
