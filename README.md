@@ -173,3 +173,15 @@ __Benefits of Using DVC Pipelines__:<br>
     - __Automation__: Automates the workflow, ensuring that any changes in the pipeline trigger the necessary stages to run.
 
 In this project, DVC is used for pipeline tracking. This setup is done in ```dvc.yaml``` file.
+
+How to run DVC:
+
+
+```Python
+# Initialize DVC
+dvc init
+# Run dvc repro
+dvc repro
+``` 
+
+This will set up a ```.dvc```, ```dvc.lock``` and ```.dvcignore``` in your root folder.
