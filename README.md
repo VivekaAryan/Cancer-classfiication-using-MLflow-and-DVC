@@ -72,12 +72,15 @@ Note:
 
 ### 5. Pipeline
 
-For each step in the pipeline, you:
-- Create an entity
-- Update the configmanager.
-- Update component.
-- Update pipeline.
+For each stage in the pipeline, you:
+- Add the necessary paths to ```config\congfig.yaml```.
+- Update param.yaml for "Stage 2-Preparing the base model".
+- Create an entity in ```src\ChestCancerClassfication\entity```
+- Update the configmanager in ```src\ChestCancerClassfication\config```
+- Update component in ```src\ChestCancerClassfication\components```
+- Update pipeline in ```src\ChestCancerClassfication\pipeline```
 - Update main.py
+- Update teh DVC.yaml 
 
 #### 5.1. Data Ingestion:
 
@@ -88,3 +91,6 @@ Using a YAML configuration makes the process easily configurable and maintainabl
 This YAML code is wirtten in ```config\config.yaml```. The data is downloaded and extracted and stored in the artifacts folder. 
 
 Note: The testing is all done in the research folder. Also, make sure the data is added to ```.gitignore```.
+
+#### 5.2. Prepare Base Model:
+In this stage, the VGG16 model is downloaded and prepared for transfer learning. The pre-trained model is obtained, and its convolutional layers are left unchanged (essentially frozen). The fully connected layers are replaced with custom layers to accommodate the specific classes to be predicted. This updated model is stored befoer being trained. 
