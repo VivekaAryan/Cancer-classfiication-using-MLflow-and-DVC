@@ -1,6 +1,7 @@
 import numpy as np
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
+from ChestCancerClassfication import logger
 import os
 
 class PredictionPipeline:
@@ -17,9 +18,11 @@ class PredictionPipeline:
         test_image = image.img_to_array(test_image)
         test_image = np.expand_dims(test_image, axis = 0)
         test_image = test_image / 255.0
-        result = np.argmax(model.predict(test_image), axis=1)
-        print(result)
-        print(model.predict(test_image))
+
+        prediction = model.predict(test_image)
+        result = np.argmax(prediction, axis=1)
+        logger.info(f"Prediction result index: {result}")
+        logger.info(f"Raw prediction: {np.round(prediction,2)}")
 
         if result[0] == 0:
             prediction = 'Adenocarcinoma Cancer'
