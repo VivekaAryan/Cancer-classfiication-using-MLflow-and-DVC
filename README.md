@@ -94,3 +94,5 @@ Note: The testing is all done in the research folder. Also, make sure the data i
 
 #### 5.2. Prepare Base Model:
 In this stage, the VGG16 model is downloaded and prepared for transfer learning. The pre-trained model is obtained, and its convolutional layers are left unchanged (essentially frozen). The fully connected layers are replaced with custom layers to accommodate the specific classes to be predicted. This updated model is stored befoer being trained. 
+
+Note: Details of each model can be found in [Keras Documentation](https://keras.io/api/applications/).
