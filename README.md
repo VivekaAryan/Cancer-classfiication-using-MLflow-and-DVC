@@ -155,13 +155,21 @@ mlflow.keras.log_model(model, "model", registered_model_name="MyKerasModel")
 
 # For Scikit-learn
 import mlflow.sklearn
-
 mlflow.sklearn.log_model(model, "model", registered_model_name="MySklearnModel")
-
 
 # For Pytorch
 import mlflow.pytorch
-
 mlflow.pytorch.log_model(model, "model", registered_model_name="MyPyTorchModel")
 ```
 
+#### 5.5.  Adding Data Versioning Control (DVC) to track pipeline:
+
+__[Data Version Control (DVC)](https://dvc.org/doc)__ is an open-source tool designed to manage machine learning projects efficiently. It offers version control for data and machine learning models, akin to how Git manages code. One of DVC's powerful features is its ability to create pipelines that define the sequence of stages in a machine learning workflow. These pipelines help ensure that each step in the workflow is reproducible and trackable.
+
+__Benefits of Using DVC Pipelines__:<br>
+    - __Reproducibility__: Ensures that every step of your machine learning process can be reproduced, from data preprocessing to model training.
+    - __Versioning__: Tracks changes in data, code, and models, allowing for easy rollback and comparison.
+    - __Collaboration__: Facilitates collaboration by keeping the workflow and its dependencies consistent across different environments and team members.
+    - __Automation__: Automates the workflow, ensuring that any changes in the pipeline trigger the necessary stages to run.
+
+In this project, DVC is used for pipeline tracking. This setup is done in ```dvc.yaml``` file.
