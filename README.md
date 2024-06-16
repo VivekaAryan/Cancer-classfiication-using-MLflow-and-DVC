@@ -185,3 +185,7 @@ dvc repro
 ``` 
 
 This will set up a ```.dvc```, ```dvc.lock``` and ```.dvcignore``` in your root folder.
+
+- __```.dvc``` Directory__: Manages DVC configurations and cached data to enable version control and efficient data tracking.
+- __```dvc.lock``` File__: Ensures reproducibility by locking the exact versions of data and code dependencies for each pipeline stage.
+- __```.dvcignore``` File__: Excludes specified files and directories from DVC tracking, similar to .gitignore in Git.
