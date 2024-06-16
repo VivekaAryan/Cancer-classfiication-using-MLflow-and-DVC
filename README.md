@@ -26,19 +26,19 @@ The Chest Cancer Classification project is a comprehensive machine learning appl
 
     - __Description__: This pipeline handles the classification of new medical images. It loads the trained model, processes input images, and outputs predictions indicating the type of chest cancer.
     - __Tools__: TensorFlow, Numpy.
-    
+
 ## Overview of the Workflow 
 
 1. [Setting up Initial Directory structure and file](#1-setting-up-initial-directory-structure-and-file)
 2. [Requirements Installation](#2-requirements-installation)
 3. [Logging and Exception](#3-logging-and-exception)
 4. [Creating frequently used functionalities in Utils](#4-creating-frequently-used-functionalities-in-utils)
-5. [Pipeline](#5-pipeline)
-    5.1. [Data Ingestion](#51-data-ingestion)
-    5.2. [Preparing the model](#52-prepare-base-model)
-    5.3. [Training the model](#53--training-the-model)
-    5.4. [Model Evaluation](#54--model-evaluation)
-    5.5. [Adding Data Versioning Control (DVC) to track pipeline](#55--adding-data-versioning-control-dvc-to-track-pipeline)
+5. [Pipeline](#5-pipeline)<br>
+    5.1. [Data Ingestion](#51-data-ingestion)<br>
+    5.2. [Preparing the model](#52-prepare-base-model)<br>
+    5.3. [Training the model](#53--training-the-model)<br>
+    5.4. [Model Evaluation](#54--model-evaluation)<br>
+    5.5. [Adding Data Versioning Control (DVC) to track pipeline](#55--adding-data-versioning-control-dvc-to-track-pipeline)<br>
 6. [Prediction](#6-prediction)
 
 ## Detailed Workflow
