@@ -2,10 +2,10 @@
 
 ## Workflow 
 
-1. Setting up Initial Directory structure and file
-2. Requirements Installation
-3. Logging and Exception
-4. Creating frequently used functionalities in Utils
+1. [Setting up Initial Directory structure and file](#1-setting-up-initial-directory-structure-and-file)
+2. [Requirements Installation](#2-requirements-installation)
+3. [Logging and Exception](#3-logging-and-exception)
+4. [Creating frequently used functionalities in Utils](#4-creating-frequently-used-functionalities-in-utils)
 5. Update the configuration manager in src config
 6. Udpate the components
 7. Update the pipeline
