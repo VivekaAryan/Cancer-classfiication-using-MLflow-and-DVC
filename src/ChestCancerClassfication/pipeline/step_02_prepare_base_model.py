@@ -1,6 +1,6 @@
 from ChestCancerClassfication.config.configuration import ConfigurationManager
 from ChestCancerClassfication.components.prepare_base_model import PrepareBaseModel
-from ChestCancerClassfication.utils import logger
+from ChestCancerClassfication import logger
 
 STAGE_NAME = "Prepare base model"
 

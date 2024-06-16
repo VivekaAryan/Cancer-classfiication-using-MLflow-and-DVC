@@ -1,6 +1,6 @@
 from ChestCancerClassfication.config.configuration import ConfigurationManager
 from ChestCancerClassfication.components.model_trainer import Training
-from ChestCancerClassfication.utils import logger
+from ChestCancerClassfication import logger
 
 STAGE_NAME = "Training"
 

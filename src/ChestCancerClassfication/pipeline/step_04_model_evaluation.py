@@ -1,6 +1,6 @@
 from ChestCancerClassfication.config.configuration import ConfigurationManager
 from ChestCancerClassfication.components.model_evaluation_mlflow import Evaluation
-from ChestCancerClassfication.utils import logger
+from ChestCancerClassfication import logger
 
 STAGE_NAME = "Evaluation Stage"
 

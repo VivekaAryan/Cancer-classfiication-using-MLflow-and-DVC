@@ -1,7 +1,7 @@
 import os
 import zipfile
 import gdown
-from ChestCancerClassfication.utils import logger
+from ChestCancerClassfication import logger
 from ChestCancerClassfication.utils.common import get_size
 from ChestCancerClassfication.entity.config_entity import DataIngestionConfig
 

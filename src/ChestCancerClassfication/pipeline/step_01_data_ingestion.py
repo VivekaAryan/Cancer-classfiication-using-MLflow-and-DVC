@@ -1,6 +1,6 @@
 from ChestCancerClassfication.config.configuration import ConfigurationManager
 from ChestCancerClassfication.components.data_ingestion import DataIngestion
-from ChestCancerClassfication.utils import logger
+from ChestCancerClassfication import logger
 
 STAGE_NAME = "Data Ingestion stage"
 
