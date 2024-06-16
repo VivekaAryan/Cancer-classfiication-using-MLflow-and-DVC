@@ -12,7 +12,7 @@
 8. Update the main.py
 9. Update the dvc.yaml
 
-## Workflow
+## Detailed Workflow
 
 ### 1. Setting up Initial Directory structure and file
 ```template.py``` is designed to set up the initial directory structure and files for any project. It ensures that all necessary directories and files are created, making it easier to maintain a consistent project structure.
@@ -67,3 +67,17 @@ Note:
 - The ```ensure_annotations``` decorator from the ```ensure``` library is used to enforce type annotations in Python functions. It ensures that the arguments passed to a function match the specified type annotations, and it can also validate the return type of the function. This helps in catching type-related errors early, making the code more robust and easier to understand.
 
 - The ```ConfigBox``` class from the ```python-box``` library extends the standard dictionary to provide additional features, such as dot notation access. This makes it easier to work with nested dictionary structures, as you can access elements using attribute-style access instead of key-based access.
+
+
+
+### 5. Pipeline
+
+- __Data Ingestion__: <br>
+This stage involves downloading the dataset from a specified URL, storing it locally, and extracting the contents for further use in the project. 
+
+<br>
+Using a YAML configuration makes the process easily configurable and maintainable, allowing for flexibility in specifying different datasets or storage locations. In this approach, configuration details are neatly separated from the code, resulting in cleaner and more adaptable code. This method offers significant benefits in terms of maintainability, scalability, and collaboration.
+
+This YAML code is wirtten in ```config\config.yaml```. The data is downloaded and extracted and stored in the artifacts folder. 
+
+Note: The testing is all done in the research folder.
