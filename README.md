@@ -72,12 +72,19 @@ Note:
 
 ### 5. Pipeline
 
-- __Data Ingestion__: <br>
+For each step in the pipeline, you:
+- Create an entity
+- Update the configmanager.
+- Update component.
+- Update pipeline.
+- Update main.py
+
+#### 5.1. Data Ingestion:
+
 This stage involves downloading the dataset from a specified URL, storing it locally, and extracting the contents for further use in the project. 
 
-<br>
 Using a YAML configuration makes the process easily configurable and maintainable, allowing for flexibility in specifying different datasets or storage locations. In this approach, configuration details are neatly separated from the code, resulting in cleaner and more adaptable code. This method offers significant benefits in terms of maintainability, scalability, and collaboration.
 
 This YAML code is wirtten in ```config\config.yaml```. The data is downloaded and extracted and stored in the artifacts folder. 
 
-Note: The testing is all done in the research folder.
+Note: The testing is all done in the research folder. Also, make sure the data is added to ```.gitignore```.
