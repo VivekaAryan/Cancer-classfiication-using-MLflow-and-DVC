@@ -236,10 +236,10 @@ The ```PredictionPipeline``` class is designed to handle the prediction stage of
 - __Interpreting Results__:
 
     - The predicted class index is mapped to the corresponding cancer type:
-    0 → Adenocarcinoma Cancer
-    1 → Large Cell Carcinoma Cancer
-    2 → Normal
-    Other → Squamous Cell Carcinoma Cancer
+    0 → Adenocarcinoma Cancer<br>
+    1 → Large Cell Carcinoma Cancer<br>
+    2 → Normal<br>
+    Other → Squamous Cell Carcinoma Cancer<br>
     - The prediction is returned as a dictionary containing the predicted cancer type.
 
 ### 7. Flask Application for the Prediction Pipeline
