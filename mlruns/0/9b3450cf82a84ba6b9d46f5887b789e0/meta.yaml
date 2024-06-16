@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Projects/Cancer-classfiication-using-MLflow-and-DVC/mlruns/0/9b3450cf82a84ba6b9d46f5887b789e0/artifacts
+end_time: 1718568054871
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 9b3450cf82a84ba6b9d46f5887b789e0
+run_name: sassy-shoat-661
+run_uuid: 9b3450cf82a84ba6b9d46f5887b789e0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1718568012114
+status: 3
+tags: []
+user_id: aryan

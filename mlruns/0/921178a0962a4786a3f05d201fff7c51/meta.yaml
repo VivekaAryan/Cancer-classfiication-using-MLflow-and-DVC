@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Projects/Cancer-classfiication-using-MLflow-and-DVC/mlruns/0/921178a0962a4786a3f05d201fff7c51/artifacts
+end_time: 1718568054868
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 921178a0962a4786a3f05d201fff7c51
+run_name: luxuriant-quail-290
+run_uuid: 921178a0962a4786a3f05d201fff7c51
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1718568012193
+status: 3
+tags: []
+user_id: aryan
