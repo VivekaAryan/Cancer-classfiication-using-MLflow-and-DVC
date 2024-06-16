@@ -1,5 +1,32 @@
 # Cancer Classfiication Using MLflow and DVC
+The Chest Cancer Classification project is a comprehensive machine learning application designed to diagnose different types of chest cancer from medical images. Utilizing state-of-the-art deep learning techniques and a well-structured data pipeline, this project aims to provide accurate and reliable cancer classifications, which are crucial for timely and effective treatment.
 
+## Key Components
+- __Data Ingestion__
+
+    - __Description__: This stage involves downloading and preparing the raw dataset for further processing. The dataset is fetched from a specified URL, stored locally, and extracted for use in subsequent stages.
+    - __Tools__: DVC, YAML for configuration.
+
+- __Data Preprocessing__
+
+    - __Description__: The raw data undergoes cleaning and transformation to ensure it is in a suitable format for model training. This includes resizing images, normalizing pixel values, and potentially augmenting the data to enhance the model's robustness.
+    - __Tools__: TensorFlow, Python scripts.
+    
+- __Model Training__
+
+    - __Description__: A deep learning model (VGG16) is utilized for transfer learning. The pre-trained model’s convolutional layers are frozen, and custom fully connected layers are added to classify the specific types of chest cancer. The model is trained on the preprocessed dataset.
+    - __Tools__: TensorFlow, Keras.
+
+- __Model Evaluation__
+
+    - __Description__: The trained model is evaluated on a validation dataset to measure its performance. Metrics such as accuracy and loss are computed and logged.
+    - __Tools__: TensorFlow, MLflow for experiment tracking.
+
+- __Prediction Pipeline__
+
+    - __Description__: This pipeline handles the classification of new medical images. It loads the trained model, processes input images, and outputs predictions indicating the type of chest cancer.
+    - __Tools__: TensorFlow, Numpy.
+    
 ## Overview of the Workflow 
 
 1. [Setting up Initial Directory structure and file](#1-setting-up-initial-directory-structure-and-file)
