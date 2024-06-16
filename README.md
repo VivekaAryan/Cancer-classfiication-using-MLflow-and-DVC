@@ -1,12 +1,15 @@
 # Cancer Classfiication Using MLflow and DVC
 
-## Workflow 
+## Overview of the Workflow 
 
 1. [Setting up Initial Directory structure and file](#1-setting-up-initial-directory-structure-and-file)
 2. [Requirements Installation](#2-requirements-installation)
 3. [Logging and Exception](#3-logging-and-exception)
 4. [Creating frequently used functionalities in Utils](#4-creating-frequently-used-functionalities-in-utils)
-5. Update the configuration manager in src config
+5. [Pipeline](#5-pipeline)
+    5.1. [Data Ingestion](#51-data-ingestion)
+    5.2. [Preparing the model](#52-prepare-base-model)
+    5.3. [Training the model](#53--training-the-model)
 6. Udpate the components
 7. Update the pipeline
 8. Update the main.py
@@ -99,6 +102,19 @@ Note: Details of each model can be found in [Keras Documentation](https://keras.
 
 #### 5.3.  Training the model:
 This ```Training``` class encapsulates the entire training process, including loading the pre-trained model, setting up data generators with optional augmentation, training the model, and saving the trained model. The class is designed to be flexible and configurable, allowing for easy adjustments through the ```TrainingConfig``` object.
+
+#### 5.4.  Model Evaluation:
+
+- __Connecting with [Dagshub](https://dagshub.com/docs/index.html)__
+DagsHub is a platform for AI and ML developers that lets you manage and collaborate on your data, models, experiments, alongside your code. Dagshub is integrated with [MLflow](https://mlflow.org/docs/latest/index.html) to keep track of expereimentation process, log parameters and metrics. 
+
+    Note: The following credentials need to be exported as env variables by running in the terminal:
+
+    ```Python
+    export MLFLOW_TRACKING_URI=
+    export MLFLOW_TRACKING_USERNAME= 
+    export MLFLOW_TRACKING_PASSWORD=
+
 
 
 
