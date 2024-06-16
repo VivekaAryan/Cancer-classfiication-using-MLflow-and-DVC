@@ -103,9 +103,33 @@ Note: Details of each model can be found in [Keras Documentation](https://keras.
 #### 5.3.  Training the model:
 This ```Training``` class encapsulates the entire training process, including loading the pre-trained model, setting up data generators with optional augmentation, training the model, and saving the trained model. The class is designed to be flexible and configurable, allowing for easy adjustments through the ```TrainingConfig``` object.
 
+- __Initialization__: Sets up the ```Training``` object with necessary configurations.
+    - __Action__: Receives a ```TrainingConfig``` instance containing all parameters required for training.
+
+- __Get Base Model (get_base_model)__: Loads a pre-trained model for transfer learning.
+    - __Action__: Loads the model specified in config.updated_base_model_path into self.model.
+
+- __Train and Validation Generator (train_valid_generator)__: Sets up data generators for training and validation.
+    - __Actions__:
+        - __Data Augmentation__: Applies data augmentation if config.params_is_augmented is True.
+        - __Data Scaling__: Rescales image pixel values to [0, 1].
+        - __Training Data Generator__: Loads and augments training data from config.training_data.
+        - __Validation Data Generator__: Loads validation data from config.valid_data without augmentation.
+
+- __Save Model (save_model)__: Saves the trained model to a specified location.
+    - __Action__: Saves the Keras model to the path provided.
+
+- __Training Process (train)__: Trains the neural network using the data generators.
+    - __Actions__:
+        - __Steps Calculation__: Computes steps per epoch for training and validation.
+        - __Model Training__: Trains the model for a set number of epochs and validation steps.
+        - __Model Saving__: Saves the trained model to config.trained_model_path.
+
 #### 5.4.  Model Evaluation:
 
-- __Connecting with [Dagshub](https://dagshub.com/docs/index.html)__
+The ```Evaluation``` class is designed to handle the evaluation process of a trained TensorFlow model for the ```ChestCancerClassification``` project. This class includes methods to set up a validation data generator, load a trained model, evaluate the model, save the evaluation scores, and log the evaluation results into MLflow.
+
+- __Connecting with [Dagshub](https://dagshub.com/docs/index.html)__:<br>
 DagsHub is a platform for AI and ML developers that lets you manage and collaborate on your data, models, experiments, alongside your code. Dagshub is integrated with [MLflow](https://mlflow.org/docs/latest/index.html) to keep track of expereimentation process, log parameters and metrics. 
 
     Note: The following credentials need to be exported as env variables by running in the terminal:
@@ -116,8 +140,28 @@ DagsHub is a platform for AI and ML developers that lets you manage and collabor
     export MLFLOW_TRACKING_PASSWORD=
     ```
 
+- __Initialization__: The Evaluation class is initialized with an EvaluationConfig object containing configuration details such as paths, image size, batch size, and MLflow URI.
+- __Validation Data Setup__: The _valid_generator method prepares the validation data generator with specified preprocessing steps and data flow parameters.
+- __Model Loading__: The load_model method loads a pre-trained TensorFlow model from the specified path.
+- __Evaluation__: The evaluation method evaluates the loaded model using the validation data generator, calculates the loss and accuracy, and saves these scores to a JSON file.
+- __MLflow Logging__: The log_into_mlfow method logs the evaluation parameters and metrics into MLflow, and if applicable, registers the model.
+
+__Note__: MLflow provides different functions for logging models from various libraries like Keras, Scikit-learn, and PyTorch. The specific method to log a model in MLflow depends on the machine learning library being used.
+
+```Python
+# For Keras
+import mlflow.keras
+mlflow.keras.log_model(model, "model", registered_model_name="MyKerasModel")
+
+# For Scikit-learn
+import mlflow.sklearn
+
+mlflow.sklearn.log_model(model, "model", registered_model_name="MySklearnModel")
 
 
+# For Pytorch
+import mlflow.pytorch
 
-
+mlflow.pytorch.log_model(model, "model", registered_model_name="MyPyTorchModel")
+```
 
