@@ -2,7 +2,7 @@ artifacts_root: artifacts
 
 data_ingestion:
   root_dir: artifacts/data_ingestion
-  source_URL: https://drive.google.com/file/d/1sjozQle9ohHLr1bgJ_MpnM97mDt4BzFO/view?usp=sharing
+  source_URL: # provide linke to the dataset from google colab
   local_data_file: artifacts/data_ingestion/data.zip
   unzip_dir: artifacts/data_ingestion
 
