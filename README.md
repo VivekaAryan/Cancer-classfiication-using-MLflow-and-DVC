@@ -151,6 +151,8 @@ This ```Training``` class encapsulates the entire training process, including lo
         - __Model Training__: Trains the model for a set number of epochs and validation steps.
         - __Model Saving__: Saves the trained model to config.trained_model_path.
 
+Note: The model could be large. Make sure you use [Git Large File Storage](https://git-lfs.com/) to push the model.
+
 #### 5.4.  Model Evaluation:
 
 The ```Evaluation``` class is designed to handle the evaluation process of a trained TensorFlow model for the ```ChestCancerClassification``` project. This class includes methods to set up a validation data generator, load a trained model, evaluate the model, save the evaluation scores, and log the evaluation results into MLflow.
