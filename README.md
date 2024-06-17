@@ -27,6 +27,26 @@ The Chest Cancer Classification project is a comprehensive machine learning appl
     - __Description__: This pipeline handles the classification of new medical images. It loads the trained model, processes input images, and outputs predictions indicating the type of chest cancer.
     - __Tools__: TensorFlow, Numpy.
 
+- __Frontend__
+    - __Description__: The frontend interface allows users to upload medical images and view the classification results. Users can interact with the application through a web interface where they can easily upload images, trigger the prediction process, and see the output.
+
+    - __Tools__: HTML, CSS, JavaScript, Bootstrap.
+
+- __Backend__
+    - __Description__: The backend is implemented using Flask, a lightweight web framework for Python. It handles the image upload, preprocessing, and interfacing with the prediction pipeline to return the classification results to the frontend.
+
+    - __Tools__: Flask, Python.
+
+- __Deployment__
+    - __Description__: The deployment process involves setting up a CI/CD pipeline using GitHub Actions and AWS services. This ensures that the application is built, tested, and deployed automatically whenever changes are made to the codebase. The deployment pipeline handles the following steps:
+
+        - __Build Docker Image__: The source code is packaged into a Docker image.
+        - __Push to ECR__: The Docker image is pushed to Amazon Elastic Container Registry (ECR).
+        - __Launch EC2 Instance__: An Amazon EC2 instance is launched to host the application.
+        - __Pull Docker Image__: The EC2 instance pulls the Docker image from ECR.
+        - __Run Docker Image__: The Docker image is run on the EC2 instance, making the application accessible.
+    Tools: GitHub Actions, AWS (EC2, ECR), Docker.
+
 ## Overview of the Workflow 
 
 1. [Setting up Initial Directory structure and file](#1-setting-up-initial-directory-structure-and-file)
