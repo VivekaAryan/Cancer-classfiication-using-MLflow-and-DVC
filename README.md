@@ -267,3 +267,37 @@ This Flask application serves as a web interface for the ```ChestCancerClassific
     - The prediction route accepts a POST request containing a base64-encoded image.
     - The image is decoded and saved using the decodeImage function.
     - The PredictionPipeline runs the prediction on the saved image, and the result is returned as a JSON response.
+
+### 8. Dockerization and AWS CI/CD Deployment
+The ```main.yaml``` file is set up to perform CI/CD using GitHub Actions with AWS. Here's a breakdown of the steps mentioned:
+
+- __Continuous Integration (CI) and Continuous Delivery (CD)__:
+
+    - __CI/CD in GitHub Actions__: The file defines a CI/CD pipeline using GitHub Actions. GitHub Actions is used to automate the building, testing, and deployment of code.
+
+- __Connecting with AWS:__
+
+    - The script connects with AWS, and these AWS credentials are configured to allow GitHub Actions to interact with AWS services.
+
+- __Installing Necessary Libraries:__
+
+    - The script installs necessary libraries required for building and deploying the application. This includes tools like the AWS CLI, Docker, or other dependencies.
+
+- __Logging in to Amazon ECR (Elastic Container Registry):__
+
+    - __ECR__: Amazon Elastic Container Registry (ECR) is a managed Docker container registry that makes it easy to store, manage, and deploy Docker container images.
+    - The script logs into ECR using AWS credentials to gain access to the container registry.
+
+- __Building the Docker Image__:
+
+    -The script builds a Docker image for the application. This involves using a Dockerfile to package the application and its dependencies into a container image.
+
+- __Pushing the Docker Image to ECR:__
+
+    - After building the Docker image, the script pushes the image to Amazon ECR. This makes the image available for deployment.
+
+- __Continuous Deployment (CD):__
+
+    - __Logging into AWS__: In the deployment step, the workflow logs into AWS again to perform deployment actions.
+    - __Pulling the Docker Image from ECR__: The workflow pulls the Docker image from Amazon ECR to ensure it has the latest version of the container.
+    - __Running the Docker Image on EC2__: The workflow runs the Docker image on an EC2 instance. EC2 (Elastic Compute Cloud) is a service that provides resizable compute capacity in the cloud, essentially virtual servers.

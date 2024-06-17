@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Projects/Cancer-classfiication-using-MLflow-and-DVC/mlruns/0/4a2822df69f14a129284d9f511558c1c/artifacts
+end_time: 1718584834977
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4a2822df69f14a129284d9f511558c1c
+run_name: industrious-moth-69
+run_uuid: 4a2822df69f14a129284d9f511558c1c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1718584795858
+status: 3
+tags: []
+user_id: aryan
