@@ -1,5 +1,7 @@
-# Cancer Classfiication Using MLflow and DVC
-The Chest Cancer Classification project is a comprehensive machine learning application designed to diagnose different types of chest cancer from medical images. Utilizing state-of-the-art deep learning techniques and a well-structured data pipeline, this project aims to provide accurate and reliable cancer classifications, which are crucial for timely and effective treatment.
+# Cancer Classification Using MLflow and DVC
+The Chest Cancer Classification project is a comprehensive machine-learning application designed to diagnose different types of chest cancer from medical images. Utilizing state-of-the-art deep learning techniques and a well-structured data pipeline, this project aims to provide accurate and reliable cancer classifications, which are crucial for timely and effective treatment. 
+
+MLflow is integrated for tracking experiments and managing model lifecycle, while DVC (Data Version Control) is used to version control data and machine learning models, ensuring reproducibility and collaboration. The backend is implemented using Flask, a lightweight web framework, to handle image uploads, preprocessing, and interfacing with the prediction pipeline. The application is containerized using Docker, allowing for consistent deployment across different environments. The deployment process is automated using a CI/CD pipeline with GitHub Actions and AWS, ensuring seamless and reliable updates to the application. 
 
 ## Key Components
 - __Data Ingestion__
@@ -71,7 +73,7 @@ The Chest Cancer Classification project is a comprehensive machine learning appl
 
 ### 2. Requirements Installation
 
-In this step, all the necessary dependencies required for the ```ChestCancerClassification``` project were installed in a virtual or new environment. This ensured that the project environment was properly set up with all the needed libraries and packages. The dependencies were listed in the requirements.txt file, which was used for installation.
+In this step, all the necessary dependencies required for the ```ChestCancerClassification``` project were installed in a virtual or new environment. This ensured that the project environment was properly set up with all the needed libraries and packages. The dependencies that were used for installation were listed in the requirements.txt file.
 
 The ```-e .``` line in the ```requirements.txt``` file was a special entry that instructed pip to install the project itself as a Python package in editable mode. This meant that any changes made to the project code would immediately take effect without needing to reinstall the package. This was particularly useful during development, as it allowed for a more efficient workflow.
 
@@ -83,7 +85,7 @@ The ```setup.py``` script is a crucial part of the packaging and distribution pr
 
 #### Logging
 
-The custom logging function has been initialized in the ```src/ChestCancerClassification``` path. This function is designed to capture and record log messages, which are saved in the ```running_logs.log``` file. This logging mechanism is crucial for future debugging and monitoring the application's behavior.
+The custom logging function has been initialized in the ```src/ChestCancerClassification``` path. This function is designed to capture and record log messages, which are saved in the ```running_logs.log``` file. This logging mechanism is crucial for future debugging and monitoring of the application's behaviour.
 
 #### Exception Handling with Python Box
 
@@ -98,7 +100,7 @@ The ```read_yaml``` function reads a YAML file from a specified path and returns
 The ```create_directories``` function creates multiple directories specified in a list. It uses the ```os.makedirs``` method to ensure that all directories are created, even if they already exist. When the ```verbose``` parameter is set to ```True```, it logs the creation of each directory, providing feedback during the setup process.
 
 - __```save_json```__:
-The ```save_json``` function saves a dictionary as a JSON file at a given path. It uses Python’s built-in ```json``` module to serialize the dictionary and writes it to the specified file, formatting the output for readability. This function is useful for storing configuration data, results, or any structured data in a standard format.
+The ```save_json``` function saves a dictionary as a JSON file at a given path. It uses Python’s built-in ```json``` module to serialize the dictionary and write it to the specified file, formatting the output for readability. This function is useful for storing configuration data, results, or any structured data in a standard format.
 
 - __```save_bin```__:
 The ```save_bin``` function saves data as a binary file using the ```joblib``` library. This function is designed to handle the serialization of large datasets or models, ensuring they can be efficiently stored and later retrieved without data loss. It logs the path where the binary file is saved for easy tracking.
@@ -145,7 +147,7 @@ This YAML code is wirtten in ```config\config.yaml```. The data is downloaded an
 Note: The testing is all done in the research folder. Also, make sure the data is added to ```.gitignore```.
 
 #### 5.2. Prepare Base Model:
-In this stage, the VGG16 model is downloaded and prepared for transfer learning. The pre-trained model is obtained, and its convolutional layers are left unchanged (essentially frozen). The fully connected layers are replaced with custom layers to accommodate the specific classes to be predicted. This updated model is stored befoer being trained. 
+In this stage, the VGG16 model is downloaded and prepared for transfer learning. The pre-trained model is obtained, and its convolutional layers are left unchanged (essentially frozen). The fully connected layers are replaced with custom layers to accommodate the specific classes to be predicted. This updated model is stored before being trained. 
 
 Note: Details of each model can be found in [Keras Documentation](https://keras.io/api/applications/).
 
@@ -181,7 +183,7 @@ Note: The model could be large. Make sure you use [Git Large File Storage](https
 The ```Evaluation``` class is designed to handle the evaluation process of a trained TensorFlow model for the ```ChestCancerClassification``` project. This class includes methods to set up a validation data generator, load a trained model, evaluate the model, save the evaluation scores, and log the evaluation results into MLflow.
 
 - __Connecting with [Dagshub](https://dagshub.com/docs/index.html)__:<br>
-DagsHub is a platform for AI and ML developers that lets you manage and collaborate on your data, models, experiments, alongside your code. Dagshub is integrated with [MLflow](https://mlflow.org/docs/latest/index.html) to keep track of expereimentation process, log parameters and metrics. 
+DagsHub is a platform for AI and ML developers that lets you manage and collaborate on your data, models, and experiments, alongside your code. Dagshub is integrated with [MLflow](https://mlflow.org/docs/latest/index.html) to keep track of experimentation process, log parameters and metrics. 
 
     Note: The following credentials need to be exported as env variables by running in the terminal:
 
@@ -255,7 +257,7 @@ The ```PredictionPipeline``` class is designed to handle the prediction stage of
 
 - __Making Predictions__:
 
-    - The preprocessed image is passed to the model’s predict function, which returns the prediction probabilities for each class.
+    - The preprocessed image is passed to the model’s prediction function, which returns the prediction probabilities for each class.
     - The class with the highest probability is determined using np.argmax.
 
 - __Interpreting Results__:
@@ -306,7 +308,7 @@ The ```main.yaml``` file is set up to perform CI/CD using GitHub Actions with AW
 
 - __Installing Necessary Libraries:__
 
-    - The script installs necessary libraries required for building and deploying the application. This includes tools like the AWS CLI, Docker, or other dependencies.
+    - The script installs the necessary libraries required for building and deploying the application. This includes tools like the AWS CLI, Docker, or other dependencies.
 
 - __Logging in to Amazon ECR (Elastic Container Registry):__
 
@@ -329,10 +331,10 @@ The ```main.yaml``` file is set up to perform CI/CD using GitHub Actions with AW
 
 ## Apendix
 
-### Brief on AWS-CICD-Deployment-with-Github-Actions Steps
+### Brief on AWS-CICD-Deployment-with-GitHub-Actions Steps
 This guide outlines the steps to set up a CI/CD pipeline for deploying a Dockerized application to AWS using GitHub Actions. The process involves building and pushing a Docker image from the source code, pushing it to Amazon ECR, launching an EC2 instance, pulling the Docker image from ECR, and running the Docker image on the EC2 instance.
 
-Steps to setup AWS CI/CD deplyment with GitHub Action:
+Steps to set up AWS CI/CD deployment with GitHub Action:
 
 - __Login to AWS console__: Gain access to the AWS Management Console to perform necessary configurations and create resources.
 - __Create IAM user for deployment__: Create a dedicated IAM user with specific permissions for CI/CD operations.
