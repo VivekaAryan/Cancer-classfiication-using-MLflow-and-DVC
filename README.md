@@ -1,5 +1,7 @@
 # Cancer Classfiication Using MLflow and DVC
-The Chest Cancer Classification project is a comprehensive machine learning application designed to diagnose different types of chest cancer from medical images. Utilizing state-of-the-art deep learning techniques and a well-structured data pipeline, this project aims to provide accurate and reliable cancer classifications, which are crucial for timely and effective treatment.
+The Chest Cancer Classification project is a comprehensive machine learning application designed to diagnose different types of chest cancer from medical images. Utilizing state-of-the-art deep learning techniques and a well-structured data pipeline, this project aims to provide accurate and reliable cancer classifications, which are crucial for timely and effective treatment. 
+
+The backend is implemented using Flask, a lightweight web framework, to handle image uploads, preprocessing, and interfacing with the prediction pipeline. The application is containerized using Docker, allowing for consistent deployment across different environments. The deployment process is automated using a CI/CD pipeline with GitHub Actions and AWS, ensuring seamless and reliable updates to the application.
 
 ## Key Components
 - __Data Ingestion__
