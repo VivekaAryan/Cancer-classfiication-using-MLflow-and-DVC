@@ -45,7 +45,8 @@ The Chest Cancer Classification project is a comprehensive machine learning appl
         - __Launch EC2 Instance__: An Amazon EC2 instance is launched to host the application.
         - __Pull Docker Image__: The EC2 instance pulls the Docker image from ECR.
         - __Run Docker Image__: The Docker image is run on the EC2 instance, making the application accessible.
-    Tools: GitHub Actions, AWS (EC2, ECR), Docker.
+
+    - __Tools__: GitHub Actions, AWS (EC2, ECR), Docker.
 
 ## Overview of the Workflow 
 
