@@ -40,6 +40,8 @@ The Chest Cancer Classification project is a comprehensive machine learning appl
     5.4. [Model Evaluation](#54--model-evaluation)<br>
     5.5. [Adding Data Versioning Control (DVC) to track pipeline](#55--adding-data-versioning-control-dvc-to-track-pipeline)<br>
 6. [Prediction](#6-prediction)
+7. [Flask Application for the Prediction Pipeline](#7-flask-application-for-the-prediction-pipeline)
+8. [Dockerization and AWS CI/CD Deployment](#8-dockerization-and-aws-cicd-deployment)
 
 ## Detailed Workflow
 
@@ -303,3 +305,47 @@ The ```main.yaml``` file is set up to perform CI/CD using GitHub Actions with AW
     - __Logging into AWS__: In the deployment step, the workflow logs into AWS again to perform deployment actions.
     - __Pulling the Docker Image from ECR__: The workflow pulls the Docker image from Amazon ECR to ensure it has the latest version of the container.
     - __Running the Docker Image on EC2__: The workflow runs the Docker image on an EC2 instance. EC2 (Elastic Compute Cloud) is a service that provides resizable compute capacity in the cloud, essentially virtual servers.
+
+## Apendix
+
+### Brief on AWS-CICD-Deployment-with-Github-Actions Steps
+This guide outlines the steps to set up a CI/CD pipeline for deploying a Dockerized application to AWS using GitHub Actions. The process involves building and pushing a Docker image from the source code, pushing it to Amazon ECR, launching an EC2 instance, pulling the Docker image from ECR, and running the Docker image on the EC2 instance.
+
+Steps to setup AWS CI/CD deplyment with GitHub Action:
+
+- __Login to AWS console__: Gain access to the AWS Management Console to perform necessary configurations and create resources.
+- __Create IAM user for deployment__: Create a dedicated IAM user with specific permissions for CI/CD operations.
+    - __EC2 Access__: Allows managing EC2 instances, which are virtual machines.
+    - __ECR Access__: Allows managing Amazon Elastic Container Registry, used to store Docker images.
+- __Required IAM Policies__:
+    - __AmazonEC2ContainerRegistryFullAccess__: Grants full access to ECR.
+    - __AmazonEC2FullAccess__: Grants full access to EC2 resources.
+- __Create ECR Repository__: Create ECR Repository.
+- __Create EC2 Machine (Ubuntu)__: Launch an EC2 instance to host and run the Dockerized application.
+- __Install Docker on EC2 Machine__:
+    - __Update and upgrade the EC2 instance__:
+    ```bash
+    sudo apt-get update -y
+    sudo apt-get upgrade
+    ```
+    - __Install Docker__:
+    ```bash
+    curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo sh get-docker.sh
+    sudo usermod -aG docker ubuntu
+    newgrp docker
+    ```
+- __Configure EC2 as Self-Hosted Runner__: Use the EC2 instance as a self-hosted runner for GitHub Actions.
+    - Go to ```Settings > Actions > Runners``` in your GitHub repository.
+    - Add a new self-hosted runner, choose the OS (Linux), and follow the provided commands to set it up on the EC2 instance.
+- __Setup GitHub Secrets__: Store sensitive information required for deployment as secrets in GitHub.
+    - __AWS_ACCESS_KEY_ID__: Your AWS Access Key ID.
+    - __AWS_SECRET_ACCESS_KEY__: Your AWS Secret Access Key.
+    - __AWS_REGION__: Region where your resources are located, e.g., us-east-1.
+    - __AWS_ECR_LOGIN_URI__: URI for logging into ECR, e.g., 5663734*****.dkr.ecr.us-east-1.amazonaws.com.
+    - __ECR_REPOSITORY_NAME__: Name of your ECR repository, e.g., simple-app.
+
+## License
+
+This project is licensed under the MIT License.
+
